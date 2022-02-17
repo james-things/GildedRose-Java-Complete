@@ -20,7 +20,7 @@ class GildedRose {
             if (!item.getAges() && !item.getLegendary() && !item.getConjured() && !isExpired)
                 UpdateNormalQuality(item);
 
-            ApplyQualityLimits(item);
+            item.ApplyQualityLimits();
 
             if (!item.getLegendary())
                 DecrementSellIn(item);
@@ -45,14 +45,6 @@ class GildedRose {
     //update the quality of a normal item
     private void UpdateNormalQuality(Item item) {
         item.setQuality(item.getQuality() - 1);
-    }
-
-    //apply quality minimum and maximum to item
-    private void ApplyQualityLimits(Item item) {
-        if (item.getQuality() > 50)
-            item.setQuality(50);
-        if (item.getQuality() < 0)
-            item.setQuality(0);
     }
 
     //reduce sellIn by 1

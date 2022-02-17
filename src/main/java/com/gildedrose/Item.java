@@ -17,6 +17,8 @@ public class Item {
             this.legendary = true;
         if (name.contains("Conjured"))
             this.conjured = true;
+
+        ApplyQualityLimits();
     }
 
     public String getName() { return this.name;}
@@ -30,6 +32,13 @@ public class Item {
 
     public void setSellIn(int si) { this.sellIn = si; }
     public void setQuality(int q) { this.quality = q; }
+
+    public void ApplyQualityLimits() {
+        if (this.quality > 50)
+            this.quality = 50;
+        if (this.quality < 0)
+            this.quality = 0;
+    }
 
    @Override
    public String toString() {
