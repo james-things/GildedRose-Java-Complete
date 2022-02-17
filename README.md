@@ -1,6 +1,6 @@
 # GildedRose-Java
 
-An example refactoring of the "Gilded Rose Kata" Java edition, found at:
+An example refactoring of the "Gilded Rose Kata" Java edition, from:
 https://github.com/emilybache/GildedRose-Refactoring-Kata
 
 Some of the changes applied to the original code are:
