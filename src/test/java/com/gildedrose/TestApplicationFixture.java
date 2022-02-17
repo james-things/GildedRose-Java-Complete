@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-public class TestMain {
+public class TestApplicationFixture {
     public static void main(String[] args) {
         System.out.println("Test Name Here");
 

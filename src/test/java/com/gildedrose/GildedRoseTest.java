@@ -1,10 +1,21 @@
 package com.gildedrose;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GildedRoseTest {
+
+
+    @BeforeEach
+    void setUp() {
+    }
+
+    @AfterEach
+    void tearDown() {
+    }
 
     @Test
     void foo() {
@@ -14,4 +25,15 @@ class GildedRoseTest {
         assertEquals("foo", app.getItem(0).getName());
     }
 
+    @Test
+    void updateQuality() {
+    }
+
+    @Test
+    void getItems() {
+    }
+
+    @Test
+    void getItem() {
+    }
 }
