@@ -1,7 +1,7 @@
 # GildedRose-Java
 
 An example refactoring of the "Gilded Rose Kata" Java edition, from:
-https://github.com/emilybache/GildedRose-Refactoring-Kata
+https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/main/Java
 
 Some of the changes applied to the original code are:
 
@@ -13,8 +13,8 @@ Some of the changes applied to the original code are:
        
     Item.Java
         -Added "ages", "legendary", and "conjured" item properties
-        -Applied "good programming practices" with regard to access permissions (properties/fields)
-        -Improved formatting of toString method for easier to review output
+        -Applied good programming practices with regard to access permissions (properties/fields)
+        -Improved formatting of toString method for easy to review outputs
         -Added specification of item properties based on the name of the item
         
 Navigate to https://github.com/james-things/GildedRose-Java/tree/master/src/main/java/com/gildedrose to start browsing the code revisions.
