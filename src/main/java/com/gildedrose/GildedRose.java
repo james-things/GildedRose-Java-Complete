@@ -8,6 +8,7 @@ class GildedRose {
         this.items = items;
     }
 
+    //processes all items and updates their quality using the appropriate method for the given item type
     public void UpdateQuality() {
         for (Item item : items) {
             isExpired = CheckExpiration(item);
@@ -26,6 +27,7 @@ class GildedRose {
         }
     }
 
+    //update the quality of an item which ages
     private void UpdateAgingQuality(Item item) {
         if (item.getSellIn() > 10)
             item.setQuality(item.getQuality() + 1);
@@ -35,14 +37,17 @@ class GildedRose {
             item.setQuality(item.getQuality() + 3);
     }
 
+    //update the quality of a conjured item
     private void UpdateConjuredQuality(Item item) {
         item.setQuality(item.getQuality() - 2);
     }
 
+    //update the quality of a normal item
     private void UpdateNormalQuality(Item item) {
         item.setQuality(item.getQuality() - 1);
     }
 
+    //apply quality minimum and maximum to item
     private void ApplyQualityLimits(Item item) {
         if (item.getQuality() > 50)
             item.setQuality(50);
@@ -50,23 +55,25 @@ class GildedRose {
             item.setQuality(0);
     }
 
+    //reduce sellIn by 1
     private void DecrementSellIn(Item item) {
         item.setSellIn(item.getSellIn() - 1);
     }
 
+    //reduce quality to zero if not legendary and expired, returns boolean isExpired
     private boolean CheckExpiration(Item item) {
         if (item.getSellIn() <= 0 && !item.getLegendary())
             item.setQuality(0);
         return (item.getQuality() <= 0);
     }
 
+    //return list of items
     public Item[] getItems() {
         return this.items;
     }
 
+    //return item with specified index
     public Item getItem(int index) {
         return this.items[index];
     }
-
-    //additional features below here
 }
