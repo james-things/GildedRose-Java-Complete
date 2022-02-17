@@ -55,7 +55,7 @@ class GildedRose {
     }
 
     private boolean CheckExpiration(Item item) {
-        if (item.getSellIn() <= 0)
+        if (item.getSellIn() <= 0 && !item.getLegendary())
             item.setQuality(0);
         return (item.getQuality() <= 0);
     }
