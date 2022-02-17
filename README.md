@@ -13,7 +13,7 @@ Some of the changes applied to the original code are:
        
     Item.Java
         -Added "ages", "legendary", and "conjured" item properties
-        -Applied "good programming practices" with regard to access permissions (properties/fields)
+        -Applied good programming practices with regard to access permissions (properties/fields)
         -Improved formatting of toString method for easier to review output
         -Added specification of item properties based on the name of the item
         
