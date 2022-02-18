@@ -13,7 +13,7 @@ class GildedRose {
         for (Item item : items) {
             SetItemFlags(item);
 
-            isExpired = CheckExpiration(item);
+            isExpired = item.quality <= 0;
 
             if (this.isAging)
                 UpdateAgingQuality(item);
@@ -63,13 +63,6 @@ class GildedRose {
         this.isLegendary = item.name.contains("Sulfuras");
         this.isConjured = item.name.contains("Conjured");
         this.isNormal = (!this.isAging && !this.isLegendary && !this.isConjured);
-    }
-
-    //reduce quality to zero if not legendary and expired, returns boolean isExpired
-    private boolean CheckExpiration(Item item) {
-        if (item.sellIn <= 0 && !this.isLegendary)
-            item.quality = 0;
-        return (item.quality <= 0);
     }
 
     //apply hard quality limits
