@@ -2,7 +2,7 @@ package com.gildedrose;
 
 class GildedRose {
     Item[] items;
-    private boolean isExpired, normal, ages, legendary, conjured;
+    private boolean isExpired, isNormal, isAging, isLegendary, isConjured;
 
     public GildedRose(Item[] items) {
         this.items = items;
@@ -15,16 +15,16 @@ class GildedRose {
 
             isExpired = CheckExpiration(item);
 
-            if (this.ages)
+            if (this.isAging)
                 UpdateAgingQuality(item);
-            if (this.conjured)
+            if (this.isConjured)
                 UpdateConjuredQuality(item);
-            if (this.normal)
+            if (this.isNormal)
                 UpdateNormalQuality(item);
 
             ApplyQualityLimits(item);
 
-            if (!this.legendary)
+            if (!this.isLegendary)
                 DecrementSellIn(item);
         }
     }
@@ -58,24 +58,25 @@ class GildedRose {
 
     //set flags appropriate for the passed item
     private void SetItemFlags(Item item) {
-        this.ages = item.name.contains("Aged Brie") || item.name.contains("concert");
-        this.legendary = item.name.contains("Sulfuras");
-        this.conjured = item.name.contains("Conjured");
-        this.normal = (!this.ages && !this.legendary && !this.conjured);
+        this.isAging = item.name.contains("Aged Brie")
+            || item.name.contains("concert");
+        this.isLegendary = item.name.contains("Sulfuras");
+        this.isConjured = item.name.contains("Conjured");
+        this.isNormal = (!this.isAging && !this.isLegendary && !this.isConjured);
     }
 
     //reduce quality to zero if not legendary and expired, returns boolean isExpired
     private boolean CheckExpiration(Item item) {
-        if (item.sellIn <= 0 && !this.legendary)
+        if (item.sellIn <= 0 && !this.isLegendary)
             item.quality = 0;
         return (item.quality <= 0);
     }
 
     //apply hard quality limits
     public void ApplyQualityLimits(Item item) {
-        if (this.legendary)
+        if (this.isLegendary)
             item.quality = 80;
-        if (item.quality > 50 && !this.legendary)
+        if (item.quality > 50 && !this.isLegendary)
             item.quality = 50;
         if (item.quality < 0)
             item.quality = 0;
