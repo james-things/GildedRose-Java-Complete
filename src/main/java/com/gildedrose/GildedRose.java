@@ -13,8 +13,6 @@ class GildedRose {
         for (Item item : items) {
             SetItemFlags(item);
 
-            isExpired = item.quality <= 0;
-
             if (this.isAging)
                 UpdateAgingQuality(item);
             if (this.isConjured)
@@ -27,6 +25,16 @@ class GildedRose {
             if (!this.isLegendary)
                 DecrementSellIn(item);
         }
+    }
+
+    //set flags appropriate for the passed item
+    private void SetItemFlags(Item item) {
+        this.isAging = item.name.contains("Aged Brie")
+            || item.name.contains("concert");
+        this.isLegendary = item.name.contains("Sulfuras");
+        this.isConjured = item.name.contains("Conjured");
+        this.isNormal = (!this.isAging && !this.isLegendary && !this.isConjured);
+        this.isExpired = item.quality <= 0;
     }
 
     //update the quality of an item which ages
@@ -54,15 +62,6 @@ class GildedRose {
     //reduce sellIn by 1
     private void DecrementSellIn(Item item) {
         item.sellIn -= 1;
-    }
-
-    //set flags appropriate for the passed item
-    private void SetItemFlags(Item item) {
-        this.isAging = item.name.contains("Aged Brie")
-            || item.name.contains("concert");
-        this.isLegendary = item.name.contains("Sulfuras");
-        this.isConjured = item.name.contains("Conjured");
-        this.isNormal = (!this.isAging && !this.isLegendary && !this.isConjured);
     }
 
     //apply hard quality limits
