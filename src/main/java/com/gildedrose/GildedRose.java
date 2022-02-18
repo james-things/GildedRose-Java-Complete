@@ -29,8 +29,7 @@ class GildedRose {
 
     //set flags appropriate for the passed item
     private void SetItemFlags(Item item) {
-        this.isAging = item.name.contains("Aged Brie")
-            || item.name.contains("concert");
+        this.isAging = item.name.contains("Aged Brie") || item.name.contains("concert");
         this.isLegendary = item.name.contains("Sulfuras");
         this.isConjured = item.name.contains("Conjured");
         this.isNormal = (!this.isAging && !this.isLegendary && !this.isConjured);
