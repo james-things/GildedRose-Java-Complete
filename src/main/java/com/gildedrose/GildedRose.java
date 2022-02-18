@@ -2,7 +2,7 @@ package com.gildedrose;
 
 class GildedRose {
     Item[] items;
-    private boolean isExpired, ages, legendary, conjured;
+    private boolean isExpired, normal, ages, legendary, conjured;
 
     public GildedRose(Item[] items) {
         this.items = items;
@@ -12,14 +12,18 @@ class GildedRose {
     public void UpdateQuality() {
         for (Item item : items) {
             SetItemFlags(item);
+
             isExpired = CheckExpiration(item);
+
             if (this.ages)
                 UpdateAgingQuality(item);
             if (this.conjured)
                 UpdateConjuredQuality(item);
-            if (!this.ages && !this.legendary && !this.conjured)
+            if (this.normal)
                 UpdateNormalQuality(item);
+
             ApplyQualityLimits(item);
+
             if (!this.legendary)
                 DecrementSellIn(item);
         }
@@ -39,17 +43,17 @@ class GildedRose {
 
     //update the quality of a conjured item
     private void UpdateConjuredQuality(Item item) {
-        item.quality = item.quality - ((isExpired) ? 4 : 2);
+        item.quality -= ((isExpired) ? 4 : 2);
     }
 
     //update the quality of a normal item
     private void UpdateNormalQuality(Item item) {
-        item.quality = item.quality - ((isExpired) ? 2 : 1);
+        item.quality -= ((isExpired) ? 2 : 1);
     }
 
     //reduce sellIn by 1
     private void DecrementSellIn(Item item) {
-        item.sellIn = item.sellIn - 1;
+        item.sellIn -= 1;
     }
 
     //set flags appropriate for the passed item
@@ -57,6 +61,7 @@ class GildedRose {
         this.ages = item.name.contains("Aged Brie") || item.name.contains("concert");
         this.legendary = item.name.contains("Sulfuras");
         this.conjured = item.name.contains("Conjured");
+        this.normal = (!this.ages && !this.legendary && !this.conjured);
     }
 
     //reduce quality to zero if not legendary and expired, returns boolean isExpired
