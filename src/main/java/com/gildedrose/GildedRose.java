@@ -1,5 +1,7 @@
 package com.gildedrose;
 
+//This is a change
+
 class GildedRose {
     Item[] items;
     private boolean isExpired, isNormal, isAging, isLegendary, isConjured;
