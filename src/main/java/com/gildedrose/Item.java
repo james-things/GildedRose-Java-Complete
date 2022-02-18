@@ -34,7 +34,9 @@ public class Item {
     public void setQuality(int q) { this.quality = q; }
 
     public void ApplyQualityLimits() {
-        if (this.quality > 50)
+        if (this.legendary)
+            this.quality = 80;
+        if (this.quality > 50 && !this.legendary)
             this.quality = 50;
         if (this.quality < 0)
             this.quality = 0;

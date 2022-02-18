@@ -13,6 +13,7 @@
 -The Quality of an item is never negative
 -"Aged Brie" actually increases in Quality the older it gets
 -Legendary items do not expire or decrease in quality
+-Legendary items always have a quality of 80
 -"Sulfuras" is a legendary item
 -"Backstage passes", like aged brie, increases in Quality as its SellIn value approaches;
 	-Quality increases by 2 when there are 10 days or less and
