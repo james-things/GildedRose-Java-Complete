@@ -13,11 +13,11 @@ class GildedRose {
         for (Item item : items) {
             isExpired = CheckExpiration(item);
 
-            if (item.getAges() && !isExpired)
+            if (item.getAges())
                 UpdateAgingQuality(item);
-            if (item.getConjured() && !isExpired)
+            if (item.getConjured())
                 UpdateConjuredQuality(item);
-            if (!item.getAges() && !item.getLegendary() && !item.getConjured() && !isExpired)
+            if (!item.getAges() && !item.getLegendary() && !item.getConjured())
                 UpdateNormalQuality(item);
 
             item.ApplyQualityLimits();
@@ -35,16 +35,18 @@ class GildedRose {
             item.setQuality(item.getQuality() + 2);
         if (item.getSellIn() <= 5 && item.getSellIn() > 0)
             item.setQuality(item.getQuality() + 3);
+        if (isExpired)
+            item.setQuality(0);
     }
 
     //update the quality of a conjured item
     private void UpdateConjuredQuality(Item item) {
-        item.setQuality(item.getQuality() - 2);
+        item.setQuality(item.getQuality() - ((isExpired) ? 4 : 2));
     }
 
     //update the quality of a normal item
     private void UpdateNormalQuality(Item item) {
-        item.setQuality(item.getQuality() - 1);
+        item.setQuality(item.getQuality() - ((isExpired) ? 2 : 1));
     }
 
     //reduce sellIn by 1
