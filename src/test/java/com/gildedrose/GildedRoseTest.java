@@ -39,12 +39,12 @@ class GildedRoseTest {
 
     @Test
     void setItemFlags() {
-        Item testItem = new Item("Conjured Test Item", 10, 10);
-        Item[] items = new Item[] { new Item("foo", 0, 0) };
-        GildedRose gr = new GildedRose(items);
-        assertFalse(gr.isConjured);
-        gr.SetItemFlags(testItem);
-        assertTrue(gr.isConjured);
+        Item testItem = new Item("Conjured Test Item", 10, 10); //declare test item
+        Item[] items = new Item[] { new Item("foo", 0, 0) }; //declare array (needed by gildedrose)
+        GildedRose gr = new GildedRose(items);  //instantiate gildedrose
+        assertFalse(gr.isConjured); //assert default is false
+        gr.SetItemFlags(testItem); //set flags using TEST item
+        assertTrue(gr.isConjured); //assert test item changed flag to true
     }
 
     @Test
