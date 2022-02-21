@@ -4,7 +4,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class GildedRoseTest {
 
@@ -26,14 +26,44 @@ class GildedRoseTest {
     }
 
     @Test
-    void updateQuality() {
-    }
-
-    @Test
     void getItems() {
     }
 
     @Test
     void getItem() {
+    }
+
+    @Test
+    void updateQuality() {
+    }
+
+    @Test
+    void setItemFlags() {
+        Item testItem = new Item("Conjured Test Item", 10, 10);
+        Item[] items = new Item[] { new Item("foo", 0, 0) };
+        GildedRose gr = new GildedRose(items);
+        assertFalse(gr.isConjured);
+        gr.SetItemFlags(testItem);
+        assertTrue(gr.isConjured);
+    }
+
+    @Test
+    void updateAgingQuality() {
+    }
+
+    @Test
+    void updateConjuredQuality() {
+    }
+
+    @Test
+    void updateNormalQuality() {
+    }
+
+    @Test
+    void decrementSellIn() {
+    }
+
+    @Test
+    void applyQualityLimits() {
     }
 }

@@ -4,7 +4,7 @@ package com.gildedrose;
 
 class GildedRose {
     Item[] items;
-    private boolean isExpired, isNormal, isAging, isLegendary, isConjured;
+    protected boolean isExpired, isNormal, isAging, isLegendary, isConjured;
 
     public GildedRose(Item[] items) {
         this.items = items;
@@ -30,7 +30,7 @@ class GildedRose {
     }
 
     //set flags appropriate for the passed item
-    private void SetItemFlags(Item item) {
+    protected void SetItemFlags(Item item) {
         this.isAging = item.name.contains("Aged Brie") || item.name.contains("concert");
         this.isLegendary = item.name.contains("Sulfuras");
         this.isConjured = item.name.contains("Conjured");
@@ -39,7 +39,7 @@ class GildedRose {
     }
 
     //update the quality of an item which ages
-    private void UpdateAgingQuality(Item item) {
+    protected void UpdateAgingQuality(Item item) {
         if (item.sellIn > 10)
             item.quality = item.quality + 1;
         if (item.sellIn <= 10 && item.sellIn > 5)
@@ -51,17 +51,17 @@ class GildedRose {
     }
 
     //update the quality of a conjured item
-    private void UpdateConjuredQuality(Item item) {
+    protected void UpdateConjuredQuality(Item item) {
         item.quality -= ((isExpired) ? 4 : 2);
     }
 
     //update the quality of a normal item
-    private void UpdateNormalQuality(Item item) {
+    protected void UpdateNormalQuality(Item item) {
         item.quality -= ((isExpired) ? 2 : 1);
     }
 
     //reduce sellIn by 1
-    private void DecrementSellIn(Item item) {
+    protected void DecrementSellIn(Item item) {
         item.sellIn -= 1;
     }
 
