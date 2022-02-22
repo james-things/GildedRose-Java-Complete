@@ -82,7 +82,7 @@ class GildedRoseTest {
         assertFalse(testGildedRose.isPastSellIn);
         assertTrue(testGildedRose.isUnsellable);
 
-        //test conjured item - "concert"
+        //test aging item - "concert"
         testGildedRose.SetItemFlags(testItemA2);
         assertTrue(testGildedRose.isAging);
         assertFalse(testGildedRose.isConjured);
