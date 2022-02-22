@@ -31,11 +31,8 @@ class GildedRoseTest {
     }
 
     @Test
-    void getItems() {
-    }
+    void setItems() {
 
-    @Test
-    void getItem() {
     }
 
     @Test
