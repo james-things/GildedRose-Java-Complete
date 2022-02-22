@@ -8,6 +8,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GildedRoseTest {
 
+    //Added a SetItems(Item[]) to make test case writing easier
+    //to quickly set the array, you can use the syntax:
+    //SetItems(new Item[]{itemA, itemB, itemC});
+    // OR
+    //SetItems(new Item[]{new Item("name", sellIn, quality), new Item("name", sellIn, quality)});
 
     @BeforeEach
     void setUp() {
