@@ -1,12 +1,19 @@
 package com.gildedrose;
 
-//This is a change
-
 class GildedRose {
     Item[] items;
     protected boolean isPastSellIn, isUnsellable, isNormal, isAging, isLegendary, isConjured;
 
+    //no arg constructor
+    public GildedRose() {}
+
+    //arg constructor
     public GildedRose(Item[] items) {
+        this.items = items;
+    }
+
+    //set items to passed array
+    protected void SetItems(Item[] items) {
         this.items = items;
     }
 
