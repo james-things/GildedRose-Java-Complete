@@ -41,7 +41,7 @@ public class TestApplicationFixture {
                 System.out.println(item);
             }
             System.out.println();
-            app.UpdateQuality();
+            app.updateQuality();
         }
     }
 

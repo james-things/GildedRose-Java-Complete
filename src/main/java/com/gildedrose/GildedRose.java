@@ -1,5 +1,7 @@
 package com.gildedrose;
 
+import java.util.Arrays;
+
 class GildedRose {
     Item[] items;
     protected boolean isNormal;
@@ -82,5 +84,47 @@ class GildedRose {
             item.quality = 50;
         if (item.quality < 0)
             item.quality = 0;
+    }
+
+    //new features
+
+    //Create a new item array and add the passed item on to the end of it
+    protected void addItem(Item item) {
+        int curSize = this.items.length;
+        Item[] newArray = new Item[curSize + 1];
+        for (int i = 0; i < curSize; i++)
+            newArray[i] = this.items[i];
+        newArray[curSize] = item;
+        this.items = newArray;
+    }
+
+    protected String getTypeString(Item item) {
+        setItemFlags(item);
+        if (this.isAging)
+            return "aging";
+        if (this.isConjured)
+            return "conjured";
+        if (this.isLegendary)
+            return "legendary";
+        return "normal";
+    }
+
+    protected String getItemsAsString() {
+        String itemString = "";
+        for (Item i : this.items) {
+            itemString += String.format("\n %-50s %-10s %-10s %-10s",
+                i.name, i.quality, i.sellIn, "("+getTypeString(i)+")");
+        }
+        return itemString;
+    }
+
+    protected void setDemoItemData() {
+        Item conjuredItem = new Item("Conjured Magical Dagger", 10, 45);
+        Item legendaryItem = new Item("Sulfuras, Sword of the Somethingerather", 0, 80);
+        Item normalItem = new Item("Normal Apple", 10, 5);
+        Item brieAgedItem = new Item("Aged Brie with Peaches", 10, 30);
+        Item concertAgedItem = new Item("Superbard concert tickets",7, 10);
+
+        this.items = new Item[]{conjuredItem, legendaryItem, normalItem, brieAgedItem, concertAgedItem};
     }
 }
