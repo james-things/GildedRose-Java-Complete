@@ -19,8 +19,7 @@ public class ManagementApp {
             System.out.println("3. Add Item");
 
             System.out.print("\nEnter a selection: ");
-            int selection = in.nextInt();
-            in.nextLine();
+            int selection = Integer.parseInt(in.nextLine());
 
             switch (selection) {
                 case 1:
@@ -36,15 +35,12 @@ public class ManagementApp {
                 case 3:
                     System.out.print("Enter name: ");
                     String name = in.nextLine();
-                    in.nextLine();
 
                     System.out.print("Enter quality: ");
-                    int quality = in.nextInt();
-                    in.nextLine();
+                    int quality = Integer.parseInt(in.nextLine());
 
                     System.out.println("Enter sell-in days: ");
-                    int sellIn = in.nextInt();
-                    in.nextLine();
+                    int sellIn = Integer.parseInt(in.nextLine());
 
                     gildedRose.addItem(new Item(name, sellIn, quality));
                     System.out.println("\nItem added.");
