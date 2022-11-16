@@ -1,7 +1,5 @@
 # GildedRose-Java
 
-TODO: Make this into a proper readme
-
 An example refactoring of the "Gilded Rose Kata" Java edition, from:
 https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/main/Java
 
